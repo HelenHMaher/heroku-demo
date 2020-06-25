@@ -6,7 +6,9 @@ const routes = require("./routes.js");
 const auth = require("./auth.js");
 const app = express();
 
-app.use(session({ secret: "secret", resave: true, saveUninitialized: true }));
+app.use(
+  session({ secret: process.env.SECRET, resave: true, saveUninitialized: true })
+);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 

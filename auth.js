@@ -1,7 +1,7 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
-const User = { username: "admin", password: "password", id: 01 };
+const User = { username: admin, password: process.env.PASSWORD, id: 01 };
 
 module.exports = (app) => {
   app.use(passport.initialize());

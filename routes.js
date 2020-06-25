@@ -4,7 +4,6 @@ const express = require("express");
 module.exports = (app) => {
   function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
-      console.log("logged in");
       next();
     } else {
       console.log("not logged in");
