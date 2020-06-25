@@ -28,9 +28,11 @@ module.exports = (app) => {
     })
   );
 
-  app.route("/prototype").get(ensureAuthenticated, (req, res) => {
-    res.sendFile(__dirname + "/public/prototype/index.html");
-  });
+  app.use(
+    "/prototype",
+    ensureAuthenticated,
+    express.static("public/prototype")
+  );
 
   app.route("/logout").get(function (req, res) {
     req.logout();
