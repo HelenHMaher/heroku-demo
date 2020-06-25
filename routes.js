@@ -1,9 +1,20 @@
 const passport = require("passport");
+const express = require("express");
 
 module.exports = (app) => {
   function ensureAuthenticated(req, res, next) {
-    req.isAuthenticated() ? next() : res.redirect("/heartbeat");
+    if (req.isAuthenticated()) {
+      console.log("logged in");
+      next();
+    } else {
+      console.log("not logged in");
+      res.redirect("/");
+    }
   }
+
+  app.route("/").get(function (req, res) {
+    res.sendFile(__dirname + "/public/index.html");
+  });
 
   // define the first route
   app.route("/heartbeat").get(function (req, res) {
@@ -17,20 +28,9 @@ module.exports = (app) => {
     })
   );
 
-  app.route("/prototype").get(
-    (req, res, next) => {
-      if (req.isAuthenticated()) {
-        console.log("logged in");
-        next();
-      } else {
-        console.log("not logged in");
-        res.redirect("/heartbeat");
-      }
-    }
-    //(req, res) => {
-    //  res.render("/public/prototype");
-    // }
-  );
+  app.route("/prototype").get(ensureAuthenticated, (req, res) => {
+    res.sendFile(__dirname + "/public/prototype/index.html");
+  });
 
   app.route("/logout").get(function (req, res) {
     req.logout();

@@ -6,8 +6,6 @@ const routes = require("./routes.js");
 const auth = require("./auth.js");
 const app = express();
 
-app.use(express.static(__dirname + "/public"));
-
 app.use(session({ secret: "secret", resave: true, saveUninitialized: true }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
