@@ -1,20 +1,31 @@
 const passport = require("passport");
-const LocalStrategy = require("passport-local");
+const LocalStrategy = require("passport-local").Strategy;
+
+const User = { username: "admin", password: "password", id: 01 };
 
 module.exports = (app) => {
   app.use(passport.initialize());
   app.use(passport.session());
 
+  passport.serializeUser(function (user, done) {
+    done(null, user.id);
+  });
+
+  passport.deserializeUser(function (id, done) {
+    done(null, User);
+  });
+
   passport.use(
     new LocalStrategy((username, password, done) => {
-      console.log("User " + username + " attempted to log in.");
-      if (username !== "admin") {
+      if (username !== User.username) {
+        console.log("incorrect username");
         return done(null, false);
       }
-      if (password !== "password") {
+      if (password !== User.password) {
+        console.log("incorrect password");
         return done(null, false);
       }
-      return done(null, user);
+      return done(null, User);
     })
   );
 };
