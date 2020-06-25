@@ -1,0 +1,21 @@
+
+@font-face {
+font-family: "NotoSans-Medium";src:url("static/NotoSans-Medium.woff") format("woff"),local("Noto Sans Medium")}
+@font-face {
+font-family: "NotoSans-Light";src:url("static/NotoSans-Light.woff") format("woff"),local("Noto Sans Light")}
+@font-face {
+font-family: "Exo-Thin_Medium";src:url("static/Exo-Thin_Medium.woff") format("woff"),local("Exo Thin Medium")}
+@font-face {
+font-family: "NotoSans-Italic";src:url("static/NotoSans-Italic.woff") format("woff"),local("Noto Sans Italic")}
+@font-face {
+font-family: "MaterialIcons-Regular";src:url("static/MaterialIcons-Regular.woff") format("woff"),local("Material Icons")}
+@font-face {
+font-family: "NotoSans-Regular";src:url("static/NotoSans-Regular.woff") format("woff"),local("Noto Sans Regular")}
+@font-face {
+font-family: "Roboto-Regular";src:url("static/Roboto-Regular.woff") format("woff"),local("Roboto Regular")}
+@font-face {
+font-family: "NotoSans-Bold";src:url("static/NotoSans-Bold.woff") format("woff"),local("Noto Sans Bold")}
+@font-face {
+font-family: "Exo-Thin_Regular";src:url("static/Exo-Thin_Regular.woff") format("woff"),local("Exo Thin Regular")}
+@font-face {
+font-family: "ErgosignGlyphIcons2-Normal";src:url("static/ErgosignGlyphIcons2-Normal.woff") format("woff"),local("ErgosignGlyphIcons2-Normal")}
